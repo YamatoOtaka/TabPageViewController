@@ -349,6 +349,7 @@ extension TabPageViewController: UIPageViewControllerDelegate {
         }
 
         tabView.updateCollectionViewUserInteractionEnabled(true)
+        tabView.updateCurrentIndex(beforeIndex, shouldScroll: true)
     }
 }
 
@@ -378,9 +379,5 @@ extension TabPageViewController: UIScrollViewDelegate {
 
         let scrollOffsetX = scrollView.contentOffset.x - view.frame.width
         tabView.scrollCurrentBarView(index, contentOffsetX: scrollOffsetX)
-    }
-
-    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        tabView.updateCurrentIndex(beforeIndex, shouldScroll: true)
     }
 }
